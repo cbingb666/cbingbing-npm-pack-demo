@@ -1,13 +1,15 @@
 {
   "name": "cbingbing-npm-pack-demo",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
-  "main": "lib/bundle.cjs.js",
-  "module": "lib/bundle.esm.js",
-  "browser": "lib/bundle.browser.js",
+  "main": "lib/cbingbing-utils.cjs.js",
+  "module": "lib/cbingbing-utils.esm.js",npm version
+  "browser": "lib/cbingbing-utils.browser.js",
   "scripts": {
-    "build": "rollup -c",
-    "build:types": "tsc"
+    "build": "npm run build:bundle && npm run build:types",
+    "build:bundle": "rm -rf lib && rollup -c",
+    "build:types": "rm -rf lib/types && tsc",
+    "publish": "npm publish"
   },
   "repository": {
     "type": "git",
