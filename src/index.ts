@@ -1,7 +1,7 @@
-import validPhone from './validate/validPhone'
-import delay from './time/delay'
+import time from './time'
+import validate from './validate'
 
-export default {
-  validPhone,
-  delay,
+export {
+  time,
+  validate
 }
