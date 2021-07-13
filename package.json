@@ -2,12 +2,12 @@
   "name": "cbingbing-npm-pack-demo",
   "version": "1.1.0-0",
   "description": "",
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.esm.js",
-  "browser": "lib/index.browser.js",
+  "main": "lib/dist/index.cjs.js",
+  "module": "lib/dist/index.esm.js",
+  "browser": "lib/dist/index.browser.js",
   "scripts": {
-    "build": "npm run build:bundle && npm run build:types && cp ./lib/index.esm.js example",
-    "build:bundle": "rm -rf lib && rollup -c",
+    "build": "npm run build:bundle && npm run build:types",
+    "build:bundle": "rm -rf lib/dist && rollup -c",
     "build:types": "rm -rf lib/types && tsc",
     "publish": "npm publish"
   },
@@ -40,10 +40,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "rollup": "^2.53.1",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "typescript": "^4.3.5"
   },
-  "dependencies": {
-    "rollup-plugin-babel": "^4.4.0"
-  }
+  "dependencies": {},
+  "typing": "types/index.d.ts"
 }
