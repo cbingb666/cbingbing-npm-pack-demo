@@ -6,7 +6,7 @@ function delay(ms) {
     return new Promise(function (resolve) { return setTimeout(resolve, ms); });
 }
 
-var index$2 = {
+var index$3 = {
     delay: delay
 };
 
@@ -16,7 +16,7 @@ function validPhone(val) {
     return regPhone.test(val);
 }
 
-var index$1 = {
+var index$2 = {
     validPhone: validPhone
 };
 
@@ -73,9 +73,9 @@ function __generator(thisArg, body) {
     }
 }
 
-function asyncLoadImage(src) {
+function loadImage(src) {
     if (Array.isArray(src)) {
-        return Promise.all(src.map(function (s) { return asyncLoadImage(s); }));
+        return Promise.all(src.map(function (s) { return loadImage(s); }));
     }
     else {
         return new Promise(function (resolve, reject) {
@@ -92,8 +92,9 @@ function asyncLoadImage(src) {
 }
 
 /**
- * @desc 图片转base64
+ * 图片转base64
  */
+// eslint-disable-next-line no-undef
 function imageToBase64(image) {
     return __awaiter(this, void 0, void 0, function () {
         var canvas, ctx;
@@ -101,8 +102,9 @@ function imageToBase64(image) {
             switch (_a.label) {
                 case 0:
                     if (!(typeof image === 'string')) return [3 /*break*/, 2];
-                    return [4 /*yield*/, asyncLoadImage(image)];
+                    return [4 /*yield*/, loadImage(image)];
                 case 1:
+                    // eslint-disable-next-line no-undef
                     image = (_a.sent());
                     _a.label = 2;
                 case 2:
@@ -121,14 +123,19 @@ function imageToBase64(image) {
     });
 }
 
-var index = {
+var index$1 = {
     imageToBase64: imageToBase64
 };
 
-exports.convert = index;
-exports.time = index$2;
-exports.validate = index$1;
+var index = {
+    loadImage: loadImage
+};
+
+exports.convert = index$1;
+exports.load = index;
+exports.time = index$3;
+exports.validate = index$2;
 
 if(typeof window !== 'undefined') {
-  window._Dry_VERSION_ = '1.1.0-0'
+  window._Dry_VERSION_ = '1.1.7-0'
 }

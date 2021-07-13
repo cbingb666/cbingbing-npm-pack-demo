@@ -1,2 +1,5 @@
-import validPhone from "./validPhone";
-export { validPhone };
+import validPhone from './phone';
+declare const _default: {
+    validPhone: typeof validPhone;
+};
+export default _default;
