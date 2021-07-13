@@ -2,13 +2,13 @@
   "name": "cbingbing-npm-pack-demo",
   "version": "1.1.6-0",
   "description": "",
-  "main": "lib/dist/index.cjs.js",
-  "module": "lib/dist/index.esm.js",
-  "browser": "lib/dist/index.browser.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.browser.js",
   "scripts": {
-    "build": "npm run build:bundle && npm run build:types",
-    "build:bundle": "rm -rf lib/dist && rollup -c",
-    "build:types": "rm -rf lib/types && tsc",
+    "build": "npm run build:dist && npm run build:types",
+    "build:dist": "rm -rf dist && rollup -c",
+    "build:types": "tsc",
     "publish": "npm publish"
   },
   "repository": {
