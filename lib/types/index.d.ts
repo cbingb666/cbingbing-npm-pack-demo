@@ -1,3 +1,4 @@
 import time from './time';
 import validate from './validate';
-export { time, validate };
+import convert from './convert';
+export { time, validate, convert };

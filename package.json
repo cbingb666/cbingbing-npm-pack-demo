@@ -2,11 +2,11 @@
   "name": "cbingbing-npm-pack-demo",
   "version": "1.0.2",
   "description": "",
-  "main": "lib/cbingbing-utils.cjs.js",
-  "module": "lib/cbingbing-utils.esm.js",npm version
-  "browser": "lib/cbingbing-utils.browser.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "browser": "lib/index.browser.js",
   "scripts": {
-    "build": "npm run build:bundle && npm run build:types",
+    "build": "npm run build:bundle && npm run build:types && cp ./lib/index.esm.js example",
     "build:bundle": "rm -rf lib && rollup -c",
     "build:types": "rm -rf lib/types && tsc",
     "publish": "npm publish"
@@ -43,5 +43,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "typescript": "^4.3.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "rollup-plugin-babel": "^4.4.0"
+  }
 }

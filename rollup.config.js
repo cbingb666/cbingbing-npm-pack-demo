@@ -1,9 +1,11 @@
-import typescript from '@rollup/plugin-typescript';  // 让 rollup 认识 ts 的代码
-import pkg from './package.json';
-
+import pkg from './package.json'
+// 让 rollup 认识 ts 的代码
+import typescript from '@rollup/plugin-typescript'
+// babel
+import babel from 'rollup-plugin-babel'
 // 为了将引入的 npm 包，也打包进最终结果中
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 
 // 一段自定义的内容，以下内容会添加到打包结果中
 const footer = `
@@ -17,23 +19,33 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
-      footer,
+      footer
     },
     {
       file: pkg.module,
       format: 'esm',
-      footer,
+      footer
     },
     {
       file: pkg.browser,
       format: 'umd',
       name: 'Dry',
-      footer,
-    },
+      footer
+    }
   ],
   plugins: [
     typescript(),
     commonjs(),
-    resolve()
-  ]
+    resolve({
+      // 将自定义选项传递给解析插件
+      customResolveOptions: {
+        moduleDirectory: 'node_modules'
+      }
+    }),
+    babel({
+      exclude: 'node_modules/**'
+    })
+  ],
+  // 指出应将哪些模块视为外部模块
+  external: []
 }

@@ -1,4 +1,4 @@
-import validPhone from "./validPhone";
+import validPhone from './phone';
 declare const _default: {
     validPhone: typeof validPhone;
 };
