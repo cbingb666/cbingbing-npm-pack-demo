@@ -1,4 +1,4 @@
-import asyncLoadImage from './loadImage'
+import loadImage from './loadImage'
 export default {
-  asyncLoadImage
+  loadImage: loadImage
 }

@@ -1,11 +1,13 @@
-import asyncLoadImage from '../load/loadImage'
+import loadImage from '../load/loadImage'
 
 /**
- * @desc 图片转base64
+ * 图片转base64
  */
+// eslint-disable-next-line no-undef
 export default async function imageToBase64 (image: CanvasImageSource | string) {
   if (typeof image === 'string') {
-    image = (await asyncLoadImage(image)) as CanvasImageSource
+    // eslint-disable-next-line no-undef
+    image = (await loadImage(image)) as CanvasImageSource
   }
   if (Array.isArray(image)) {
     return await Promise.all(image.map((i) => imageToBase64(i)))
